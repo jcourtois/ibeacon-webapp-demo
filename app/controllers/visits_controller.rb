@@ -28,7 +28,7 @@ class VisitsController < ApplicationController
 
     respond_to do |format|
       if @visit.save
-        format.html { redirect_to @visit, notice: 'Visit was successfully created.' }
+        format.html { redirect_to customer_visits_path, notice: 'Visit was successfully created.' }
         format.json { render action: 'show', status: :created, location: @visit }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class VisitsController < ApplicationController
   def update
     respond_to do |format|
       if @visit.update(visit_params)
-        format.html { redirect_to @visit, notice: 'Visit was successfully updated.' }
+        format.html { redirect_to customer_visits_path, notice: 'Visit was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -56,7 +56,7 @@ class VisitsController < ApplicationController
   def destroy
     @visit.destroy
     respond_to do |format|
-      format.html { redirect_to visits_url }
+      format.html { redirect_to customer_visits_path }
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,6 @@ class VisitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def visit_params
-      params.require(:visit).permit(:enter_time, :exit_time)
+      params.require(:visit).permit(:enter_time, :exit_time, :customer_id)
     end
 end

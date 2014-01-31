@@ -1,9 +1,11 @@
 IbeaconWebappDemo::Application.routes.draw do
-  resources :visits
+
 
   resources :product_areas
 
-  resources :customers
+  resources :customers do
+    resources :visits
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -16,6 +18,7 @@ IbeaconWebappDemo::Application.routes.draw do
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  #get 'customers/:id/visits' => 'visits', as: :customer_visits
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
