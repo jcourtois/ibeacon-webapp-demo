@@ -1,0 +1,27 @@
+<h1>Listing product_areas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @product_areas.each do |product_area| %>
+      <tr>
+        <td><%= product_area.name %></td>
+        <td><%= link_to 'Show', product_area %></td>
+        <td><%= link_to 'Edit', edit_product_area_path(product_area) %></td>
+        <td><%= link_to 'Destroy', product_area, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Product area', new_product_area_path %>
