@@ -1,4 +1,4 @@
-<h1>Listing customers</h1>
+<h1>Customer Registry</h1>
 
 <table>
   <thead>
@@ -12,9 +12,8 @@
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
-        <td><%= link_to 'Show', customer %></td>
-        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= "#{customer.to_s}:" %></td>
+        <td><%= link_to 'Visits', customer_visits_path(customer_id: customer[:id]) %></td>
       </tr>
     <% end %>
   </tbody>

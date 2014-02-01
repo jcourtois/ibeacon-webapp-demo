@@ -16,7 +16,6 @@
       <tr>
         <td><%= visit.enter_time %></td>
         <td><%= visit.exit_time %></td>
-        <td><%= link_to 'Show', customer_visit_path(id: visit[:id]) %></td>
         <td><%= link_to 'Edit', edit_customer_visit_path(id: visit[:id]) %></td>
         <td><%= link_to 'Destroy', customer_visit_path(id: visit[:id]), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
