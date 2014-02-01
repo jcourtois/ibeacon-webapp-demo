@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20140131182303) do
   end
 
   create_table "visits", force: true do |t|
+    t.integer  "customer_id"
     t.datetime "enter_time"
     t.datetime "exit_time"
     t.datetime "created_at"

@@ -1,6 +1,6 @@
 IbeaconWebappDemo::Application.routes.draw do
 
-
+  root 'customers#index'
   resources :product_areas
 
   resources :customers do

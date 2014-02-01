@@ -3,17 +3,19 @@
 <table>
   <thead>
     <tr>
+      <th>Product Area</th>
+      <th>Duration</th>
       <th>Enter time</th>
       <th>Exit time</th>
-      <th></th>
-      <th></th>
       <th></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @visits.each do |visit| %>
+    <% @visits.where(customer_id: params[:customer_id]).each do |visit| %>
       <tr>
+        <td><%= "Dairy" %></td>
+        <td><%= visit.duration %></td>
         <td><%= visit.enter_time %></td>
         <td><%= visit.exit_time %></td>
         <td><%= link_to 'Edit', edit_customer_visit_path(id: visit[:id]) %></td>
