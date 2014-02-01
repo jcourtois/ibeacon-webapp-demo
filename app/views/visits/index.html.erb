@@ -1,30 +1,14 @@
-<h1>Listing visits</h1>
+<h1><%= "Visits for Customer #{params[:customer_id]}" %></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Product Area</th>
-      <th>Duration</th>
-      <th>Enter time</th>
-      <th>Exit time</th>
-      <th></th>
-    </tr>
-  </thead>
+<% customer_visits = @visits.where(customer_id: params[:customer_id]) %>
 
-  <tbody>
-    <% @visits.where(customer_id: params[:customer_id]).each do |visit| %>
-      <tr>
-        <td><%= "Dairy" %></td>
-        <td><%= visit.duration %></td>
-        <td><%= visit.enter_time %></td>
-        <td><%= visit.exit_time %></td>
-        <td><%= link_to 'Edit', edit_customer_visit_path(id: visit[:id]) %></td>
-        <td><%= link_to 'Destroy', customer_visit_path(id: visit[:id]), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% if customer_visits.empty? %>
+    <%=  render 'no_visits' %>
+<% else %>
+    <%=  render 'visit_table', :customer_visits => customer_visits %>
+<% end %>
 
 <br>
 
-<%= link_to 'New Visit', new_customer_visit_path %>
+<%= link_to 'All customers', customers_path %>
+<%= link_to 'Record new Visit', new_customer_visit_path %>
