@@ -25,6 +25,7 @@ class VisitsController < ApplicationController
   # POST /visits.json
   def create
     @visit = Visit.new(visit_params)
+    @visit.customer_id = params[:customer_id]
 
     respond_to do |format|
       if @visit.save

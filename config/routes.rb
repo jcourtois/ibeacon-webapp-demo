@@ -7,6 +7,10 @@ IbeaconWebappDemo::Application.routes.draw do
     resources :visits
   end
 
+
+post '/customers/:customer_id/visits/new' => 'visits#create'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -51,7 +55,6 @@ IbeaconWebappDemo::Application.routes.draw do
 
   # Example resource route with concerns:
   #   concern :toggleable do
-  #     post 'toggle'
   #   end
   #   resources :posts, concerns: :toggleable
   #   resources :photos, concerns: :toggleable
