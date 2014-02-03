@@ -1,8 +1,8 @@
 class VisitsController < ApplicationController
-  before_action :set_visit, only: [:show, :edit, :update, :destroy]
-  before_action :set_customer, except: [:create]
-  skip_before_filter :verify_authenticity_token, only: [:create, :new]
-  before_action :standardize_membership_number, only: [:create]
+  before_action :set_visit, only: [:show, :edit, :destroy]
+  before_action :set_customer, except: [:create, :update]
+  skip_before_filter :verify_authenticity_token, only: [:create, :new, :update]
+  before_action :standardize_membership_number, only: [:create, :update]
 
   def index
     @visits = @customer.visits
@@ -39,10 +39,14 @@ class VisitsController < ApplicationController
   end
 
   def update
+    @customer = Customer.find_by(membership_number: params[:membership_number])
+    @product_area = ProductArea.find_by(name: params['visit']['product_area'])
+    @visit = @customer.visits.find_by(product_area: @product_area, exit_time: nil)
+
     respond_to do |format|
       if @visit.update(visit_params)
-        format.html { redirect_to customer_visit_path, notice: 'Visit was successfully updated.' }
-        format.json { head :no_content }
+        format.html { redirect_to customer_visits_path(@customer), notice: 'Visit was successfully updated.' }
+        format.json { render action: 'show', status: :created, location: customer_visits_path(@customer) }
       else
         format.html { render action: 'edit' }
         format.json { render json: @visit.errors, status: :unprocessable_entity }
