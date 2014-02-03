@@ -1,6 +1,7 @@
 class VisitsController < ApplicationController
   before_action :set_visit, only: [:show, :edit, :update, :destroy]
   before_action :set_customer, except: [:create]
+  skip_before_filter :verify_authenticity_token, only: [:create, :new]
 
   def index
     @visits = @customer.visits
@@ -19,7 +20,7 @@ class VisitsController < ApplicationController
   def create
     ActiveRecord::Base.transaction do
       @customer = Customer.find_or_create_by(membership_number: params[:membership_number])
-      @product_area = ProductArea.find_or_create_by(name: params[:visit][:product_area])
+      @product_area = ProductArea.find_or_create_by(name: params['visit']['product_area'])
       @visit = Visit.new(visit_params)
       @visit.customer_id = @customer.id
       @visit.product_area_id = @product_area.id
@@ -28,7 +29,7 @@ class VisitsController < ApplicationController
     respond_to do |format|
       if @visit.save
         format.html { redirect_to customer_visits_path(@customer), notice: 'Visit was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @visit }
+        format.json { render action: 'show', status: :created, location: customer_visits_path(@customer) }
       else
         format.html { render action: 'new' }
         format.json { render json: @visit.errors, status: :unprocessable_entity }
