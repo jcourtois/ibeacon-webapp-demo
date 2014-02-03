@@ -1,38 +1,31 @@
 class VisitsController < ApplicationController
   before_action :set_visit, only: [:show, :edit, :update, :destroy]
   before_action do |controller|
-    @customer = Customer.find(params[:customer_id])
+    @customer = Customer.find_or_create_by(membership_number: params[:membership_number])
+    @product_area = ProductArea.find_or_create_by(name: params[:visit][:product_area])
   end
 
-  # GET /visits
-  # GET /visits.json
   def index
     @visits = @customer.visits
   end
 
-  # GET /visits/1
-  # GET /visits/1.json
   def show
   end
 
-  # GET /visits/new
   def new
     @visit = Visit.new
   end
 
-  # GET /visits/1/edit
   def edit
   end
 
-  # POST /visits
-  # POST /visits.json
   def create
     @visit = Visit.new(visit_params)
     @visit.customer_id = @customer.id
 
     respond_to do |format|
       if @visit.save
-        format.html { redirect_to customer_visits_path, notice: 'Visit was successfully created.' }
+        format.html { redirect_to customer_visits_path(@customer), notice: 'Visit was successfully created.' }
         format.json { render action: 'show', status: :created, location: @visit }
       else
         format.html { render action: 'new' }
@@ -41,8 +34,6 @@ class VisitsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /visits/1
-  # PATCH/PUT /visits/1.json
   def update
     respond_to do |format|
       if @visit.update(visit_params)
@@ -55,8 +46,6 @@ class VisitsController < ApplicationController
     end
   end
 
-  # DELETE /visits/1
-  # DELETE /visits/1.json
   def destroy
     @visit.destroy
     respond_to do |format|
