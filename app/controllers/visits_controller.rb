@@ -1,9 +1,6 @@
 class VisitsController < ApplicationController
   before_action :set_visit, only: [:show, :edit, :update, :destroy]
-  before_action do |controller|
-    @customer = Customer.find_or_create_by(membership_number: params[:membership_number])
-    @product_area = ProductArea.find_or_create_by(name: params[:visit][:product_area])
-  end
+  before_action :set_customer, except: [:create]
 
   def index
     @visits = @customer.visits
@@ -20,8 +17,13 @@ class VisitsController < ApplicationController
   end
 
   def create
-    @visit = Visit.new(visit_params)
-    @visit.customer_id = @customer.id
+    ActiveRecord::Base.transaction do
+      @customer = Customer.find_or_create_by(membership_number: params[:membership_number])
+      @product_area = ProductArea.find_or_create_by(name: params[:visit][:product_area])
+      @visit = Visit.new(visit_params)
+      @visit.customer_id = @customer.id
+      @visit.product_area_id = @product_area.id
+    end
 
     respond_to do |format|
       if @visit.save
@@ -63,5 +65,9 @@ class VisitsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def visit_params
       params.require(:visit).permit(:enter_time, :exit_time, :customer_id)
+    end
+
+    def set_customer
+      @customer = Customer.find(params[:customer_id])
     end
 end

@@ -12,7 +12,7 @@
   <tbody>
     <% visits.each do |visit| %>
       <tr>
-        <td><%= "Dairy" %></td>
+        <td><%= visit.product_area.name %></td>
         <td><%= visit.duration %></td>
         <td><%= visit.enter_time %></td>
         <td><%= visit.exit_time %></td>
