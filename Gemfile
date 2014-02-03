@@ -7,6 +7,13 @@ gem 'rails', '4.0.2'
 gem 'pry'
 gem 'pry-rails'
 
+group :development, :test do
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'autotest'
+  gem 'autotest-standalone'
+end
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
