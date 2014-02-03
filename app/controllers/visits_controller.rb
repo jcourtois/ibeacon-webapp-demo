@@ -2,6 +2,7 @@ class VisitsController < ApplicationController
   before_action :set_visit, only: [:show, :edit, :update, :destroy]
   before_action :set_customer, except: [:create]
   skip_before_filter :verify_authenticity_token, only: [:create, :new]
+  before_action :standardize_membership_number, only: [:create]
 
   def index
     @visits = @customer.visits
@@ -70,5 +71,9 @@ class VisitsController < ApplicationController
 
     def set_customer
       @customer = Customer.find(params[:customer_id])
+    end
+
+    def standardize_membership_number
+      params['membership_number'].gsub!(/\D/, '')
     end
 end

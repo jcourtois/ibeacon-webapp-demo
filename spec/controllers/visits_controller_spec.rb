@@ -6,11 +6,12 @@ describe VisitsController do
       let(:request_data) { JSON.parse(File.read('spec/fixtures/wine_cellar_visit_request.json')) }
       let(:request_entry_time) { DateTime.parse(request_data['visit']['enter_time']) }
       let(:request_exit_time) { DateTime.parse(request_data['visit']['exit_time']) }
+      let(:request_membership_number) { request_data['membership_number'].gsub(/\D/, '') }
 
       it 'creates a new visit, a new customer, and a new product area' do
         post :create, request_data, use_route: :visits_new
 
-        customer = Customer.find_by(membership_number: 12345)
+        customer = Customer.find_by(membership_number: request_membership_number)
         customer.should_not be_nil
         customer.visits.where(
           enter_time: request_entry_time,
@@ -25,7 +26,7 @@ describe VisitsController do
 
         post :create, request_data, use_route: :visits_new
 
-        customer = Customer.find_by(membership_number: 12345)
+        customer = Customer.find_by(membership_number: request_membership_number)
         customer.visits.where(
           enter_time: request_entry_time,
           exit_time: request_exit_time
