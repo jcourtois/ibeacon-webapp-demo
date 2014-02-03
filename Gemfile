@@ -12,6 +12,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'autotest'
   gem 'autotest-standalone'
+  gem 'factory_girl_rails'
 end
 
 # Use sqlite3 as the database for Active Record
