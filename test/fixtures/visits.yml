@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  enter_time: 2014-01-31 12:23:03
-  exit_time: 2014-01-31 12:23:03
+  enter_time: 2014-01-31 12:23:47
+  exit_time: 2014-01-31 12:29:03
+  customer_id: 1
 
 two:
-  enter_time: 2014-01-31 12:23:03
-  exit_time: 2014-01-31 12:23:03
+  enter_time: 2014-01-31 12:29:53
+  exit_time: 2014-01-31 12:34:03
+  customer_id: 1
