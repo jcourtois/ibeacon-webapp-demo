@@ -1,10 +1,13 @@
 class VisitsController < ApplicationController
   before_action :set_visit, only: [:show, :edit, :update, :destroy]
+  before_action do |controller|
+    @customer = Customer.find(params[:customer_id])
+  end
 
   # GET /visits
   # GET /visits.json
   def index
-    @visits = Visit.all
+    @visits = @customer.visits
   end
 
   # GET /visits/1
@@ -25,7 +28,7 @@ class VisitsController < ApplicationController
   # POST /visits.json
   def create
     @visit = Visit.new(visit_params)
-    @visit.customer_id = params[:customer_id]
+    @visit.customer_id = @customer.id
 
     respond_to do |format|
       if @visit.save

@@ -5,10 +5,11 @@ IbeaconWebappDemo::Application.routes.draw do
 
   resources :customers do
     resources :visits
-  end
+		post 'visits/new' => 'visits#create'
+ 	end
 
 
-post '/customers/:customer_id/visits/new' => 'visits#create'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

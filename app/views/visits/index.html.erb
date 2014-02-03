@@ -1,11 +1,9 @@
-<h1><%= "Visits for Customer #{params[:customer_id]}" %></h1>
+<h1><%= "Visits for #{@customer.to_s}" %></h1>
 
-<% customer_visits = @visits.where(customer_id: params[:customer_id]) %>
-
-<% if customer_visits.empty? %>
+<% if @customer.visits.empty? %>
     <%=  render 'no_visits' %>
 <% else %>
-    <%=  render 'visit_table', :customer_visits => customer_visits %>
+    <%=  render 'visit_table', :visits => @customer.visits %>
 <% end %>
 
 <br>
