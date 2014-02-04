@@ -1,3 +1,7 @@
+<% content_for :head do %>
+    <meta http-equiv="refresh" content="15" />
+<% end %>
+
 <h1><%= "Visits for #{number_to_phone(@customer.membership_number, area_code: true)}" %></h1>
 
 <% if @customer.visits.empty? %>
