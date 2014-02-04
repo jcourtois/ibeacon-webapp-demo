@@ -13,7 +13,7 @@
     <% visits.each do |visit| %>
       <tr>
         <td><%= visit.product_area.name %></td>
-        <td><%= visit.duration %></td>
+        <td><%= visit.verbal_duration %></td>
         <td><%= visit.enter_time %></td>
         <td><%= visit.exit_time || '-----' %></td>
         <td><%= link_to 'Edit', edit_customer_visit_path(@customer, visit) %></td>

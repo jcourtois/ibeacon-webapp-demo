@@ -5,6 +5,14 @@ class Visit < ActiveRecord::Base
   belongs_to :product_area
 
   def duration
-    exit_time ? distance_of_time_in_words(exit_time, enter_time, include_seconds: true).humanize : 'Ongoing'
+    exit_time - enter_time
+  end
+
+  def verbal_duration
+    if exit_time
+      distance_of_time_in_words(exit_time, enter_time, include_seconds: true)
+    else
+      distance_of_time_in_words_to_now(enter_time, include_seconds: true)
+    end
   end
 end
