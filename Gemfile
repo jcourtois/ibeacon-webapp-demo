@@ -13,10 +13,12 @@ group :development, :test do
   gem 'autotest'
   gem 'autotest-standalone'
   gem 'factory_girl_rails'
+  gem 'sqlite3'
 end
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+group :production do
+  gem 'pg'
+end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
