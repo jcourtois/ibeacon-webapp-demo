@@ -1,5 +1,6 @@
 <% content_for :head do %>
-    <meta http-equiv="refresh" content="2" />
+    <%= javascript_include_tag 'Chart.js' %>
+    <%= javascript_include_tag 'visit_pie_chart.js' %>
 <% end %>
 
 <h1><%= "Visits for #{number_to_phone(@customer.membership_number, area_code: true)}" %></h1>
@@ -8,6 +9,7 @@
     <%=  render 'no_visits' %>
 <% else %>
     <%=  render 'visit_table', :visits => @customer.visits %>
+    <%=  render 'visit_pie_chart', :visits => @customer.visits %>
 <% end %>
 
 <br>
