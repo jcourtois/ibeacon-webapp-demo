@@ -22,7 +22,7 @@
   </div>
   <div class="field">
     <%= f.label :product_area %><br>
-    <%= f.text_field :product_area, :value => @visit.product_area.name %>
+    <%= f.text_field :product_area, :value => @visit.product_area && @visit.product_area.name %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -5,7 +5,7 @@ IbeaconWebappDemo::Application.routes.draw do
 
   resources :customers do
     resources :visits
-		post 'visits/create' => 'visits#create'
+		post 'visits/new' => 'visits#create'
   end
 
   post 'visits/create' => 'visits#create'
