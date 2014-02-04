@@ -12,7 +12,6 @@
   <tbody>
     <% visits.each do |visit| %>
       <tr>
-        <td><%= binding.pry; visit.product_area.name %></td>
         <td><%= visit.duration %></td>
         <td><%= visit.enter_time %></td>
         <td><%= visit.exit_time || '-----' %></td>
