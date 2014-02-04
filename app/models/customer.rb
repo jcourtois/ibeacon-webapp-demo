@@ -1,9 +1,13 @@
 class Customer < ActiveRecord::Base
+  after_initialize :standardize_membership_number
+  validates :membership_number, presence: true
+
   has_many :visits
 
-  include ActionView::Helpers::NumberHelper
+  private
 
-  def to_s
-    "Member number #{number_to_phone(membership_number, area_code: true)}"
+  def standardize_membership_number
+    membership_number.to_s.gsub!(/\D/, '')
   end
+
 end

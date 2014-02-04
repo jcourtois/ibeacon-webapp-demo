@@ -5,7 +5,7 @@ describe VisitsController do
     context 'with json request' do
       let(:request_entry_data) { JSON.parse(File.read('spec/fixtures/wine_cellar_visit_entry_request.json')) }
       let(:request_entry_time) { DateTime.parse(request_entry_data['visit']['enter_time']) }
-      let(:request_membership_number) { request_entry_data['membership_number'].gsub(/\D/, '') }
+      let(:request_membership_number) { request_entry_data['membership_number'] }
 
       it 'creates a new visit, a new customer, and a new product area' do
         post :create, request_entry_data, use_route: :visits_create
@@ -38,7 +38,7 @@ describe VisitsController do
     context 'with exit time' do
       let(:request_exit_data) { JSON.parse(File.read('spec/fixtures/wine_cellar_visit_exit_request.json')) }
       let(:request_exit_time) { DateTime.parse(request_exit_data['visit']['exit_time']) }
-      let(:request_membership_number) { request_exit_data['membership_number'].gsub(/\D/, '') }
+      let(:request_membership_number) { request_exit_data['membership_number'] }
 
       it 'stores exit time in the existing visit' do
         factory_customer = FactoryGirl.create(:customer, membership_number: request_membership_number)

@@ -1,4 +1,4 @@
-<h1><%= "Visits for #{@customer.to_s}" %></h1>
+<h1><%= "Visits for #{number_to_phone(@customer.membership_number, area_code: true)}" %></h1>
 
 <% if @customer.visits.empty? %>
     <%=  render 'no_visits' %>
