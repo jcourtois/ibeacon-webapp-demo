@@ -43,7 +43,6 @@ describe VisitsController do
       it 'stores exit time in the existing visit' do
         factory_customer = FactoryGirl.create(:customer, membership_number: request_membership_number)
         entry_visit = FactoryGirl.create(:wine_cellar_entry_visit, customer: factory_customer)
-
         patch :update, request_exit_data, use_route: :visits_update
 
         customer = Customer.find_by(membership_number: request_membership_number)

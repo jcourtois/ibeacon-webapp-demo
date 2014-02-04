@@ -13,7 +13,7 @@
     <% @customers.each do |customer| %>
       <tr>
         <td><%= "Member number #{number_to_phone(customer.membership_number, area_code: true)}" %></td>
-        <td><%= link_to 'Visits', customer_visits_path(customer_id: customer[:id]) %></td>
+        <td><%= link_to 'Visits', customer_visits_path(customer) %></td>
       </tr>
     <% end %>
   </tbody>

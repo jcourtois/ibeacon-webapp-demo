@@ -20,6 +20,7 @@ class VisitsController < ApplicationController
 
   def create
     ActiveRecord::Base.transaction do
+      params[:membership_number] = params[:customer_id] if params[:customer_id].present? && params[:membership_number].nil?
       @customer = Customer.find_or_create_by(membership_number: params[:membership_number])
       @product_area = ProductArea.find_or_create_by(name: params['visit']['product_area'])
       @visit = Visit.new(visit_params)
@@ -39,6 +40,7 @@ class VisitsController < ApplicationController
   end
 
   def update
+    params[:membership_number] = params[:customer_id] if params[:customer_id].present? && params[:membership_number].nil?
     @customer = Customer.find_by(membership_number: params[:membership_number])
     @product_area = ProductArea.find_by(name: params['visit']['product_area'])
     @visit = @customer.visits.find_by(product_area: @product_area, exit_time: nil)
@@ -73,7 +75,7 @@ class VisitsController < ApplicationController
     end
 
     def set_customer
-      @customer = Customer.find(params[:customer_id])
+      @customer = Customer.find_by_membership_number(params[:customer_id])
     end
 
     def logging
