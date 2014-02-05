@@ -1,5 +1,5 @@
 <% content_for :head do %>
-    <meta http-equiv="refresh" content="2" />
+    <!--<meta http-equiv="refresh" content="10" />-->
 <% end %>
 
 <h1><%= "Visits for #{number_to_phone(@customer.membership_number, area_code: true)}" %></h1>
@@ -14,3 +14,7 @@
 
 <%= link_to 'All customers', customers_path %>
 <%= link_to 'Record new Visit', new_customer_visit_path %>
+
+<div class="demo-container">
+  <div id="placeholder" class="demo-placeholder"></div>
+</div>
