@@ -16,8 +16,6 @@
         <td><%= visit.verbal_duration %></td>
         <td><%= visit.enter_time %></td>
         <td><%= visit.exit_time || '-----' %></td>
-        <td><%= link_to 'Edit', edit_customer_visit_path(@customer, visit) %></td>
-        <td><%= link_to 'Destroy', customer_visit_path(@customer, visit), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -10,13 +10,14 @@ class ProductArea < ActiveRecord::Base
     color_hash = {
         'Grains' => '#FFD772',
         'Produce' => '#3CE85F',
-        'Dairy' => '#F9FAFF',
+        'Dairy' => '#28696D',
         'Meat' => '#E8362B',
         'Non-perishables' => '#FFDC05',
         'Dog food' => '#5E301C',
         'Wine Cellar' => '#870F00',
         'Canned MeatLike Products' => '#8DFFC9',
-        'Fruit' => '#379407'
+        'Fruit' => '#97D700',
+        'Drinks' => '#FF7D00'
     }
     color_hash.default='#999999'
     color_hash
