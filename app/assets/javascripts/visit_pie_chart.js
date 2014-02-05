@@ -17,5 +17,5 @@ $(document).ready(function() {
     ]
     var data = $('#visitsPieChart').data('visits')
     var options = null;
-    var myNewChart = new Chart(ctx).Pie(data, options);
+    var myNewChart = new Chart(ctx).Doughnut(data, options);
 });
