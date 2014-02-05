@@ -19,12 +19,12 @@ $( document ).ready(function() {
         ]
 
         var flot_data = [
-    //        {
-    //            data: d1,
-    //            label: 'Epsilon stepwise steps',
-    //            lines: { show: true },
-    //            points: { show: true }
-    //        },
+            {
+                data: d1,
+                label: 'Epsilon stepwise steps',
+                lines: { show: true },
+                points: { show: true }
+            },
             {
                 data: d1,
                 label: 'Stepwise',
