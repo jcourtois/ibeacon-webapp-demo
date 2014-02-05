@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :visit do
-
     factory :dairy_entry_visit do
       enter_time DateTime.parse('Mon, 03 Feb 2014 18:32:00 UTC +00:00')
 
@@ -23,5 +22,7 @@ FactoryGirl.define do
       association :product_area, name: 'Bakery'
     end
 
+    association :customer
+    association :product_area
   end
 end

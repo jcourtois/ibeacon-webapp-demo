@@ -13,10 +13,11 @@
     <% visits.each do |visit| %>
       <tr>
         <td><%= visit.product_area.name %></td>
-        <td><%= visit.verbal_duration %></td>
+        <td><%= visit.duration %></td>
         <td><%= visit.enter_time %></td>
         <td><%= visit.exit_time || '-----' %></td>
       </tr>
     <% end %>
   </tbody>
+  <%= 'Total duration: ' + visits.flat_map{|visit| visit.duration}.reduce(:+).to_s %>
 </table>

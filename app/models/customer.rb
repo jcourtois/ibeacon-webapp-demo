@@ -8,11 +8,15 @@ class Customer < ActiveRecord::Base
   end
 
   def smoothed_visits
-    collapse_consecutive_visits_to_same_area(visits.keep_if{|visit| visit.duration > 5.0 })
+    collapse_consecutive_visits_to_same_area(long_visits_from visits)
   end
 
 
   private
+
+  def long_visits_from visits
+    visits.keep_if{|visit| visit.duration > 5.0 }
+  end
 
   def collapse_consecutive_visits_to_same_area visits
     visits
