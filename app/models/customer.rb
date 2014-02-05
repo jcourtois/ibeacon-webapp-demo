@@ -7,4 +7,31 @@ class Customer < ActiveRecord::Base
     membership_number
   end
 
+  def smoothed_visits
+    collapse_consecutive_visits_to_same_area(visits.keep_if{|visit| visit.duration > 5.0 })
+  end
+
+
+  private
+
+  def collapse_consecutive_visits_to_same_area visits
+    visits
+    .chunk{ |visit| visit.product_area }
+    .flat_map do |same_area, array_of_visits|
+      Visit.new(
+          customer_id: self.id,
+          enter_time: earliest_visit_enter_time(array_of_visits),
+          exit_time: latest_visit_exit_time(array_of_visits),
+          product_area: same_area)
+    end
+  end
+
+  def earliest_visit_enter_time visits
+    visits.min_by{|visit| visit.enter_time}.enter_time
+  end
+
+  def latest_visit_exit_time visits
+    visits.max_by{|visit| visit.exit_time}.exit_time
+  end
+
 end

@@ -5,12 +5,12 @@
 
 <h1><%= "Visits for #{number_to_phone(@customer.membership_number, area_code: true)}" %></h1>
 
-<% if @visits.empty? %>
+<% if @smoothed_visits.empty? %>
     <%=  render 'no_visits' %>
 <% else %>
-    <%=  render 'visit_table', :visits => @visits %>
-    <%=  render 'visit_step_graph', :visits => @visits %>
-    <%=  render 'visit_pie_chart', :visits => @visits %>
+    <%=  render 'visit_table', :visits => @smoothed_visits %>
+    <%=  render 'visit_step_graph', :visits => @smoothed_visits %>
+    <%=  render 'visit_pie_chart', :visits => @smoothed_visits %>
 <% end %>
 
 <br>

@@ -5,7 +5,8 @@ class VisitsController < ApplicationController
   skip_before_filter :verify_authenticity_token, only: [:create, :new, :update]
 
   def index
-    @visits = collapse_consecutive_visits_to_same_area(@customer.visits.keep_if{|visit| visit.duration > 5.0 })
+    @visits = @customer.visits
+    @smoothed_visits = @customer.smoothed_visits
   end
 
   def show
@@ -82,23 +83,4 @@ class VisitsController < ApplicationController
       logger.info "REQUEST to visits/create with params: #{params}" 
     end
 
-    def collapse_consecutive_visits_to_same_area visits
-      visits
-        .chunk{ |visit| visit.product_area }
-        .flat_map do |same_area, array_of_visits|
-          Visit.new(
-              customer_id: @customer.id,
-              enter_time: earliest_visit_enter_time(array_of_visits),
-              exit_time: latest_visit_exit_time(array_of_visits),
-              product_area: same_area)
-      end
-    end
-
-    def earliest_visit_enter_time visits
-      visits.min_by{|visit| visit.enter_time}.enter_time
-    end
-
-    def latest_visit_exit_time visits
-      visits.max_by{|visit| visit.exit_time}.exit_time
-    end
 end
