@@ -5,7 +5,7 @@ class Visit < ActiveRecord::Base
   belongs_to :product_area
 
   def duration
-    exit_time - enter_time
+    exit_time ? exit_time - enter_time : 0
   end
 
   def verbal_duration
