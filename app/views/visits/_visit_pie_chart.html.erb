@@ -1,3 +1,1 @@
-<canvas id="myChart" width="400" height="400"></canvas>
-
 <%= tag "canvas", width:"420", height:"400", id: "visitsPieChart", data: {visits: visits.map{|visit| visit.to_pie_chart_json} } %>
