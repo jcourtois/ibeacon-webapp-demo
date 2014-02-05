@@ -17,6 +17,6 @@ class Visit < ActiveRecord::Base
   end
 
   def to_pie_chart_json
-    {"value" => duration, "product_area" => product_area.name}
+    {"value" => duration, "color" => product_area.color}
   end
 end
