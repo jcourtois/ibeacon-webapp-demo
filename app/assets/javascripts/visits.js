@@ -60,7 +60,7 @@ $( document ).ready(function() {
     }
 
 
-    $.plot("#placeholder", data, options);
+    var plot = $.plot("#placeholder", data, options);
 
     $("<div id='tooltip'></div>").css({
         position: "absolute",
