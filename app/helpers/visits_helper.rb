@@ -30,7 +30,7 @@ module VisitsHelper
         'Yogurt' => 'Chobani',
         'Condiments and sauces' => 'Campbell\'s',
         'Salad dressings and mayonnaise' => 'Wish-bone',
-        'Pet Food' => 'Friskies',
+        'Pet food and pet products' => 'Friskies',
         'Crackers, cookies and bread' => 'Nabisco'
     }
   end
