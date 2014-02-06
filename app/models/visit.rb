@@ -9,7 +9,7 @@ class Visit < ActiveRecord::Base
   end
 
   def string_numeric_duration
-    Time.at(duration).utc.strftime("%H:%M:%S").gsub(/^[0:]*/, '')
+    Time.at(duration).utc.strftime("%H:%M:%S").gsub(/^00:0|^00:|^0/, '')
   end
 
   def verbal_duration
@@ -41,6 +41,6 @@ class Visit < ActiveRecord::Base
   end
 
   def formatted_exit_time
-    exit_time.strftime("%l:%M%P").strip
+    exit_time ? exit_time.strftime("%l:%M%P").strip : '----'
   end
 end
