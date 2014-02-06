@@ -21,7 +21,8 @@ class ProductArea < ActiveRecord::Base
         'Yogurt' => '#F9FBFD',
         'Condiments and sauces' => '#42968F',
         'Salad dressings and mayonnaise' => '#005B7C',
-        'Pet Food' => '#563E3B'
+        'Pet Food' => '#563E3B',
+        'Pet food and pet products' => '#563E3B'
     }
     color_hash.default='#999999'
     color_hash
