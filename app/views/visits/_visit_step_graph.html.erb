@@ -1,5 +1,17 @@
 <div class="demo-container">
-  <% visit_data = visits.map{|visit| visit.to_step_graph.flatten(1)} %>
+  <% visit_times = []
+     visits.map do |visit|
+       visit_times << visit.to_step_graph_times('enter')
+       visit_times << visit.to_step_graph_times('exit')
+    end %>
+  <% visit_product_areas = []
+     visits.map do |visit|
+       visit_product_areas << visit.to_step_graph_product_areas
+       visit_product_areas << visit.to_step_graph_product_areas
+     end%>
+
+  <% visit_data = visit_times.zip(visit_product_areas) %>
+
   <% label_data = visits.map{|visit| visit.to_step_graph_labels} %>
   <%= tag "div", id:"visit_step_graph", class:"demo-placeholder", data: {visits: visit_data, labels: label_data } %>
 </div>

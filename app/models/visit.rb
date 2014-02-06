@@ -20,8 +20,12 @@ class Visit < ActiveRecord::Base
     {"value" => duration, "color" => product_area.color}
   end
 
-  def to_step_graph
-    [[enter_time.to_i * 1000, product_area.id], [exit_time.to_i, product_area.id]]
+  def to_step_graph_times position
+    position == 'enter' ? enter_time.to_i * 1000 : exit_time.to_i * 1000
+  end
+
+  def to_step_graph_product_areas
+    product_area.id
   end
 
   def to_step_graph_labels
