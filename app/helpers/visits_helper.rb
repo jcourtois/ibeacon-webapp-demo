@@ -40,7 +40,7 @@ module VisitsHelper
         'Yogurt' => 'chobani.jpg',
         'Condiments and sauces' => 'campbells.jpg',
         'Salad dressings and mayonnaise' => 'wishbone.jpg',
-        'Pet Food' => 'friskies.jpg',
+        'Pet food and pet products' => 'friskies.jpg',
         'Crackers, cookies and bread' => 'nabisco.jpg'
     }
   end
