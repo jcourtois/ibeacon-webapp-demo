@@ -1,3 +1,5 @@
 <div class="demo-container">
-  <div id="visit_step_graph" class="demo-placeholder"></div>
+  <% visit_data = visits.map{|visit| visit.to_step_graph.flatten(1)} %>
+  <% label_data = visits.map{|visit| visit.to_step_graph_labels} %>
+  <%= tag "div", id:"visit_step_graph", class:"demo-placeholder", data: {visits: visit_data, labels: label_data } %>
 </div>

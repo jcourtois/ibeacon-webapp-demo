@@ -19,4 +19,12 @@ class Visit < ActiveRecord::Base
   def to_pie_chart_json
     {"value" => duration, "color" => product_area.color}
   end
+
+  def to_step_graph
+    [[enter_time.to_i * 1000, product_area.id], [exit_time.to_i, product_area.id]]
+  end
+
+  def to_step_graph_labels
+    [product_area.id, product_area.name]
+  end
 end
