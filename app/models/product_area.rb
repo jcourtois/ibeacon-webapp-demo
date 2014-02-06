@@ -5,6 +5,10 @@ class ProductArea < ActiveRecord::Base
     area_colors[name]
   end
 
+  def css_id
+    area_css_ids[name]
+  end
+
   private
   def area_colors
     color_hash = {
@@ -26,5 +30,15 @@ class ProductArea < ActiveRecord::Base
     }
     color_hash.default='#999999'
     color_hash
+  end
+
+  def area_css_ids
+    css_id_hash = {
+        'Yogurt' => 'yogurt',
+        'Condiments and sauces' => 'condiments',
+        'Salad dressings and mayonnaise' => 'salad',
+        'Pet food and pet products' => 'pet',
+        'Crackers, cookies and bread' => 'crackers'
+    }
   end
 end

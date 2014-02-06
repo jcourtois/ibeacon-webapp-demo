@@ -2,6 +2,7 @@
   <thead>
     <tr>
       <th>Product Area</th>
+      <th>Key</th>
       <th>Duration</th>
       <th>Enter time</th>
       <th>Exit time</th>
@@ -13,6 +14,7 @@
     <% visits.each do |visit| %>
       <tr>
         <td><%= visit.product_area.name %></td>
+        <td><span id=<%= visit.product_area.css_id %>>&#x25A0;</span></td>
         <td><%= visit.string_numeric_duration %></td>
         <td><%= visit.formatted_enter_time %></td>
         <td><%= visit.formatted_exit_time %></td>
