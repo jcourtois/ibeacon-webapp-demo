@@ -4,7 +4,7 @@ $(document).ready(function() {
             var ctx = document.getElementById(elementId).getContext("2d");
             var data = $('#' + elementId).data('visits')
             var options = {
-                animationEasing : "easeOutBounce"
+                animation: false
             };
             var myNewChart = new Chart(ctx).Doughnut(data, options);
         }

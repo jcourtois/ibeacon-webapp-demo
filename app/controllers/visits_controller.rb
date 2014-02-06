@@ -1,7 +1,6 @@
 class VisitsController < ApplicationController
   before_action :set_visit, only: [:show, :edit, :destroy]
   before_action :set_customer, except: [:create, :update]
-  before_action :logging, only: [:create, :update]
   skip_before_filter :verify_authenticity_token, only: [:create, :new, :update]
 
   def index
@@ -78,9 +77,4 @@ class VisitsController < ApplicationController
     def set_customer
       @customer = Customer.find_by_membership_number(params[:customer_id])
     end
-
-    def logging
-      logger.info "REQUEST to visits/create with params: #{params}" 
-    end
-
 end

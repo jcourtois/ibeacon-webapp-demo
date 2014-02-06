@@ -1,6 +1,7 @@
 <% content_for :head do %>
     <%= javascript_include_tag 'Chart.js' %>
     <%= javascript_include_tag 'visit_pie_chart.js' %>
+    <meta http-equiv="refresh" content="1" />
 <% end %>
 
 <h1><%= "Visits for #{number_to_phone(@customer.membership_number, area_code: true)}" %></h1>
