@@ -1,0 +1,15 @@
+<table id="visit_table">
+  <thead>
+    <tr>
+      <th>Coupons served up</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% areas.each do |area| %>
+      <tr>
+        <td><%= coupons_map[area.name] %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

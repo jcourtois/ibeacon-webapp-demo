@@ -19,6 +19,9 @@
           <%= render 'visit_pie_chart', :visits => @visits, :chart_id => 'doughnut-chart' %>
           <%= render 'visit_table', :visits => @visits %>
       </div>
+      <div id="coupons">
+        <%= render 'coupons_served_up', :areas => unique_areas(@visits) %>
+      </div>
   </div>
 
   <h2>Store path over time</h2>

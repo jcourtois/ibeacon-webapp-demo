@@ -33,17 +33,23 @@
 }
 
 #pie_chart_container {
-  width: 100%;
-  overflow:auto;
+  overflow: auto;
+  display: inline-block;
 }
 
 #smooth_chart_container {
-  width: 50%;
   float: left;
 }
 
 #raw_chart_container {
-  float: right;
+  float: left;
+  display: inline-block;
+
+}
+
+#coupons {
+  padding-top: 372px;
+  float: left;
 }
 
 .chart {

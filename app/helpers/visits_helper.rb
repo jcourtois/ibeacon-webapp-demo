@@ -20,4 +20,18 @@ module VisitsHelper
   def step_graph_labels visits
     visits.map{ |visit| [visit.product_area.id, visit.product_area.name] }.uniq
   end
+
+  def unique_areas visits
+    visits.map{ |visit| visit.product_area }.uniq
+  end
+
+  def coupons_map
+    {
+        'Yogurt' => 'Chobani',
+        'Condiments and sauces' => 'Campbell\'s',
+        'Salad dressings and mayonnaise' => 'Wish-bone',
+        'Pet Food' => 'Friskies',
+        'Crackers, cookies and bread' => 'Nabisco'
+    }
+  end
 end
