@@ -10,17 +10,20 @@
 <% else %>
   <div id="pie_chart_container">
       <div id="smooth_chart_container">
-        <%=  render 'visit_pie_chart', :visits => @smoothed_visits, :chart_id => 'smooth-doughnut-chart' %>
-        <%=  render 'visit_table', :visits => @smoothed_visits %>
+        <h2>Smoothed Data</h2>
+        <%= render 'visit_pie_chart', :visits => @smoothed_visits, :chart_id => 'smooth-doughnut-chart' %>
+        <%= render 'visit_table', :visits => @smoothed_visits %>
       </div>
 
       <div id="raw_chart_container">
-          <%=  render 'visit_pie_chart', :visits => @visits, :chart_id => 'doughnut-chart' %>
-          <%=  render 'visit_table', :visits => @visits %>
+          <h2>Raw Data</h2>
+          <%= render 'visit_pie_chart', :visits => @visits, :chart_id => 'doughnut-chart' %>
+          <%= render 'visit_table', :visits => @visits %>
       </div>
   </div>
 
-      <%=  render 'visit_step_graph', :visits => @smoothed_visits %>
+  <h2>Store path over time</h2>
+  <%= render 'visit_step_graph', :visits => @smoothed_visits %>
 <% end %>
 
 <br>
