@@ -10,7 +10,7 @@
   width: 850px;
   height: 450px;
   padding: 20px 15px 15px 15px;
-  margin: 15px auto 30px auto;
+  float: left;
   border: 1px solid #ddd;
   background: #fff;
   background: linear-gradient(#f6f6f6 0, #fff 50px);
@@ -54,15 +54,6 @@
 
 .chart {
   opacity: 0.95;
-}
-
-body {
-  height: 100%;
-  background-image: (linear-gradient(white, #eeeeee 30%, #dddddd 70%, #dddddd));
-}
-
-html {
-  height: 100%;
 }
 
 table {

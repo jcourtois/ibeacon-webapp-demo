@@ -1,4 +1,4 @@
-<table id="visit_table">
+<table id="coupon-table">
   <thead>
     <tr>
       <th>Coupons served up</th>
@@ -9,6 +9,7 @@
   <% areas.each do |area| %>
       <tr>
         <td><%= coupons_map[area.name] %></td>
+        <td><%= image_tag coupons_image_map[area.name], size: "100x100"%></td>
       </tr>
   <% end %>
   </tbody>
