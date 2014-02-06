@@ -18,10 +18,10 @@ class ProductArea < ActiveRecord::Base
         'Canned MeatLike Products' => '#8DFFC9',
         'Fruit' => '#97D700',
         'Drinks' => '#FF7D00',
-        'Yogurt' => '#8DFFC9',
-        'Condiments and sauces' => '#FFDC05',
-        'Salad dressings and mayonnaise' => '#28696D',
-        'Pet Food' => '#FF7D00'
+        'Yogurt' => '#F9FBFD',
+        'Condiments and sauces' => '#42968F',
+        'Salad dressings and mayonnaise' => '#005B7C',
+        'Pet Food' => '#563E3B'
     }
     color_hash.default='#999999'
     color_hash
