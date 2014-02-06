@@ -3,12 +3,12 @@ $( document ).ready(function() {
         var d1 = $('#visit_step_graph').data('visits')
 
         var flot_data = [
-            {
-                data: d1,
-                label: 'Epsilon stepwise steps',
-                lines: { show: true },
-                points: { show: true }
-            },
+//            {
+//                data: d1,
+//                label: 'Epsilon stepwise steps',
+//                lines: { show: true },
+//                points: { show: true }
+//            },
             {
                 data: d1,
                 label: 'Stepwise',
