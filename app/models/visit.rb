@@ -4,8 +4,12 @@ class Visit < ActiveRecord::Base
   belongs_to :customer
   belongs_to :product_area
 
+  def exit_time_or_ongoing
+    exit_time || Time.now - 6.hours
+  end
+
   def duration
-    exit_time ? exit_time - enter_time : Time.now - enter_time - 6.hours
+    exit_time_or_ongoing - enter_time
   end
 
   def string_numeric_duration

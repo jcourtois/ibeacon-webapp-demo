@@ -33,6 +33,6 @@ class Customer < ActiveRecord::Base
   end
 
   def latest_visit_exit_time visits
-    visits.map{|visit| visit.exit_time || Time.at(0) }.max
+    visits.map{|visit| visit.exit_time_or_ongoing }.max
   end
 end
