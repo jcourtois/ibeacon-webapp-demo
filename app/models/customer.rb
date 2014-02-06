@@ -29,10 +29,10 @@ class Customer < ActiveRecord::Base
   end
 
   def earliest_visit_enter_time visits
-    visits.min_by{|visit| visit.enter_time}.enter_time
+    visits.map{|visit| visit.enter_time}.min
   end
 
   def latest_visit_exit_time visits
-    visits.max_by{|visit| visit.exit_time}.exit_time
+    visits.map{|visit| visit.exit_time || Time.at(0) }.max
   end
 end
