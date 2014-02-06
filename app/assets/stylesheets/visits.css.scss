@@ -29,3 +29,16 @@
   line-height: 1.2em;
 }
 
+#pie_chart_container {
+  width: 100%;
+  overflow:auto;
+}
+
+#smooth_chart_container {
+  width: 50%;
+  float: left;
+}
+
+#raw_chart_container {
+  float: right;
+}

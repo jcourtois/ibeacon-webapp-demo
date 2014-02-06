@@ -8,11 +8,17 @@
 <% if @smoothed_visits.empty? %>
     <%=  render 'no_visits' %>
 <% else %>
-    <%=  render 'visit_table', :visits => @smoothed_visits %>
-    <%=  render 'visit_pie_chart', :visits => @smoothed_visits, :chart_id => 'smooth-doughnut-chart' %>
+  <div id="pie_chart_container">
+    <div id="smooth_chart_container">
+        <%=  render 'visit_table', :visits => @smoothed_visits %>
+        <%=  render 'visit_pie_chart', :visits => @smoothed_visits, :chart_id => 'smooth-doughnut-chart' %>
+    </div>
 
-    <%=  render 'visit_table', :visits => @visits %>
-    <%=  render 'visit_pie_chart', :visits => @visits, :chart_id => 'doughnut-chart' %>
+    <div id="raw_chart_container">
+        <%=  render 'visit_table', :visits => @visits %>
+        <%=  render 'visit_pie_chart', :visits => @visits, :chart_id => 'doughnut-chart' %>
+    </div>
+  </div>
 
     <%=  render 'visit_step_graph', :visits => @visits %>
 <% end %>
