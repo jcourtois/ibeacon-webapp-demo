@@ -75,6 +75,6 @@ class VisitsController < ApplicationController
     end
 
     def set_customer
-      @customer = Customer.find_by(params[:customer_id])
+      @customer = Customer.find_by_membership_number(params[:customer_id])
     end
 end
