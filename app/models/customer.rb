@@ -11,9 +11,7 @@ class Customer < ActiveRecord::Base
     collapse_consecutive_visits_to_same_area(long_visits_from visits)
   end
 
-
   private
-
   def long_visits_from visits
     visits.keep_if{|visit| visit.duration > 5.0 }
   end
@@ -37,5 +35,4 @@ class Customer < ActiveRecord::Base
   def latest_visit_exit_time visits
     visits.max_by{|visit| visit.exit_time}.exit_time
   end
-
 end

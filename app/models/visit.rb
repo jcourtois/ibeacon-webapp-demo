@@ -8,6 +8,10 @@ class Visit < ActiveRecord::Base
     exit_time ? exit_time - enter_time : 0
   end
 
+  def string_numeric_duration
+    Time.at(duration).utc.strftime("%H:%M:%S").gsub(/^[0:]*/, '')
+  end
+
   def verbal_duration
     if exit_time
       distance_of_time_in_words(exit_time, enter_time, include_seconds: true)
@@ -30,5 +34,13 @@ class Visit < ActiveRecord::Base
 
   def to_step_graph_labels
     [product_area.id, product_area.name]
+	end
+
+	def formatted_enter_time
+    enter_time.strftime("%l:%M%P").strip
+  end
+
+  def formatted_exit_time
+    exit_time.strftime("%l:%M%P").strip
   end
 end
