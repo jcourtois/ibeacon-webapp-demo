@@ -2,6 +2,10 @@ class Customer < ActiveRecord::Base
   validates_uniqueness_of :membership_number
   has_many :visits
 
+  def to_param
+    membership_number
+  end
+
   def smoothed_visits
     collapse_consecutive_visits_to_same_area(long_visits_from visits)
   end
