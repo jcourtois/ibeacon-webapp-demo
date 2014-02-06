@@ -1,6 +1,9 @@
 // Place all the styles related to the Visits controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+* {
+  background-image: none;
+}
 
 .demo-container {
   box-sizing: border-box;
@@ -41,4 +44,21 @@
 
 #raw_chart_container {
   float: right;
+}
+
+.chart {
+  opacity: 0.95;
+}
+
+body {
+  height: 100%;
+  background-image: (linear-gradient(white, #eeeeee 30%, #dddddd 70%, #aaaaaa));
+}
+
+html {
+  height: 100%;
+}
+
+table {
+  border-spacing: 15px 5px;
 }

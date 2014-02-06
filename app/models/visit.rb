@@ -7,7 +7,7 @@ class Visit < ActiveRecord::Base
   end
 
   def exit_time_or_ongoing
-    exit_time || Time.now - 6.hours
+    exit_time || Time.now - 6.hours + 1.second
   end
 
   def string_numeric_duration

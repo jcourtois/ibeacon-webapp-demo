@@ -32,6 +32,7 @@ GEM
       ZenTest (>= 4.4.1)
     autotest-standalone (4.5.11)
     builder (3.1.4)
+    chunky_png (1.2.9)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -40,6 +41,10 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    compass (0.12.2)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.0.2)
@@ -48,6 +53,7 @@ GEM
     factory_girl_rails (4.3.0)
       factory_girl (~> 4.3.0)
       railties (>= 3.0.0)
+    fssm (0.2.10)
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (1.5.3)
@@ -152,6 +158,7 @@ DEPENDENCIES
   autotest
   autotest-standalone
   coffee-rails (~> 4.0.0)
+  compass
   factory_girl_rails
   jbuilder (~> 1.2)
   jquery-rails
