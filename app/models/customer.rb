@@ -11,16 +11,6 @@ class Customer < ActiveRecord::Base
     collapse_consecutive_visits_to_same_area(long_visits_from visits)
   end
 
-  def step_graph_visit_data
-    visit_times = step_graph_visit_times(smoothed_visits)
-    visit_product_areas = step_graph_visit_product_areas(smoothed_visits)
-    visit_times.zip(visit_product_areas)
-  end
-
-  def step_graph_label_data
-    smoothed_visits.map{|visit| visit.to_step_graph_labels}
-  end
-
   private
   def long_visits_from visits
     visits.keep_if{|visit| visit.duration > 5.0 }
@@ -44,23 +34,5 @@ class Customer < ActiveRecord::Base
 
   def latest_visit_exit_time visits
     visits.map{|visit| visit.exit_time_or_ongoing }.max
-  end
-
-  def step_graph_visit_times visits
-    visit_times = []
-    visits.map do |visit|
-      visit_times << visit.to_step_graph_times('enter')
-      visit_times << visit.to_step_graph_times('exit')
-    end
-    visit_times
-  end
-
-  def step_graph_visit_product_areas visits
-    visit_product_areas = []
-    visits.map do |visit|
-      visit_product_areas << visit.to_step_graph_product_areas
-      visit_product_areas << visit.to_step_graph_product_areas
-    end
-    visit_product_areas
   end
 end

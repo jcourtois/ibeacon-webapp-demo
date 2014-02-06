@@ -18,10 +18,6 @@ class Visit < ActiveRecord::Base
     {"value" => duration, "color" => product_area.color}
   end
 
-  def to_step_graph_time_pairs
-    [step_graph_format(enter_time), step_graph_format(exit_time)]
-  end
-
 	def formatted_enter_time
     enter_time.strftime("%l:%M%P").strip
   end

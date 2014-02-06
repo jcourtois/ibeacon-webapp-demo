@@ -1,6 +1,6 @@
 module VisitsHelper
   def total_duration visits
-    Time.at(visits.flat_map{ |visit| visit.duration }.reduce(:+)).utc.strftime("%H:%M:%S").gsub(/^[0:]*/, '')
+    Time.at(visits.map{ |visit| visit.duration }.reduce(:+)).utc.strftime("%H:%M:%S").gsub(/^[0:]*/, '')
   end
 
   def pie_chart_data visits
@@ -18,6 +18,6 @@ module VisitsHelper
   end
 
   def step_graph_labels visits
-    visits.map{ |visit| [visit.product_area.id, visit.product_area.name] }
+    visits.map{ |visit| [visit.product_area.id, visit.product_area.name] }.uniq
   end
 end

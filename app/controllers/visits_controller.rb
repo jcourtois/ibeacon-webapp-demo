@@ -7,8 +7,6 @@ class VisitsController < ApplicationController
   def index
     @visits = @customer.visits
     @smoothed_visits = @customer.smoothed_visits
-    @step_graph_visit_data = @customer.step_graph_visit_data
-    @step_graph_label_data = @customer.step_graph_label_data
   end
 
   def show
