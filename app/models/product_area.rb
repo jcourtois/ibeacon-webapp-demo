@@ -22,7 +22,7 @@ class ProductArea < ActiveRecord::Base
         'Canned MeatLike Products' => '#8DFFC9',
         'Fruit' => '#97D700',
         'Drinks' => '#FF7D00',
-        'Yogurt' => '#F9FBFD',
+        'Yogurt' => '#A0C9E8',
         'Condiments and sauces' => '#42968F',
         'Salad dressings and mayonnaise' => '#005B7C',
         'Pet Food' => '#563E3B',
