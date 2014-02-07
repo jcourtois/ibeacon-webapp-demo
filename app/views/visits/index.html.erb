@@ -7,25 +7,33 @@
 <% if @smoothed_visits.empty? %>
     <%=  render 'no_visits' %>
 <% else %>
-  <div id="pie_chart_container">
-      <div id="smooth_chart_container">
-        <h2>Smoothed Data</h2>
-        <%= render 'visit_pie_chart', :visits => @smoothed_visits, :chart_id => 'smooth-doughnut-chart' %>
-        <%= render 'visit_table', :visits => @smoothed_visits %>
+  <div id="chart_containers">
+      <div id="pie_chart_container">
+          <div id="smooth_chart_container">
+            <h2>Smoothed Data</h2>
+            <%= render 'visit_pie_chart', :visits => @smoothed_visits, :chart_id => 'smooth-doughnut-chart' %>
+            <%= render 'visit_table', :visits => @smoothed_visits %>
+          </div>
+
+          <div id="raw_chart_container">
+              <h2>Raw Data</h2>
+              <%= render 'visit_pie_chart', :visits => @visits, :chart_id => 'doughnut-chart' %>
+              <%= render 'visit_table', :visits => @visits %>
+          </div>
       </div>
 
-      <div id="raw_chart_container">
-          <h2>Raw Data</h2>
-          <%= render 'visit_pie_chart', :visits => @visits, :chart_id => 'doughnut-chart' %>
-          <%= render 'visit_table', :visits => @visits %>
+      <div id="store_path_graph_container">
+          <h2>Store path over time</h2>
+          <%= render 'visit_step_graph', :visits => @smoothed_visits %>
       </div>
-      <div id="coupons">
-        <%= render 'coupons_served_up', :areas => unique_areas(@visits) %>
-      </div>
+
+  </div>
   </div>
 
-  <h2>Store path over time</h2>
-  <%= render 'visit_step_graph', :visits => @smoothed_visits %>
+  <div id="coupons">
+    <%= render 'coupons_served_up', :areas => unique_areas(@visits) %>
+  </div>
+
 <% end %>
 
 <br>

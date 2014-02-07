@@ -45,6 +45,14 @@ div {
   display: table;
 }
 
+h1 {
+  font-size: 30px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
 #error_explanation {
   width: 450px;
   border: 2px solid red;
@@ -52,6 +60,7 @@ div {
   padding-bottom: 0;
   margin-bottom: 20px;
   background-color: #f0f0f0;
+
   h2 {
     text-align: left;
     font-weight: bold;

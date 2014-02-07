@@ -24,7 +24,7 @@ $( document ).ready(function() {
             },
             xaxis: {
                 mode: "time",
-                timeformat: "%I:%M:%S %P"
+                timeformat: "%I:%M%p"
             },
             yaxis: {
                 ticks: $('#visit_step_graph').data('labels')
