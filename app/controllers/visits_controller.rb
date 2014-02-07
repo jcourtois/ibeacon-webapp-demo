@@ -4,8 +4,8 @@ class VisitsController < ApplicationController
   skip_before_filter :verify_authenticity_token, only: [:create, :new, :update]
 
   def index
-    @visits = @customer.visits
-    @smoothed_visits = @customer.smoothed_visits
+    @visits = @customer.visits.sort_by { |visit| visit.enter_time}
+    @smoothed_visits = @customer.smoothed_visits.sort_by { |visit| visit.enter_time}
   end
 
   def show
