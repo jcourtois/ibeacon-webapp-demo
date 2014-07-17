@@ -2,6 +2,7 @@ IbeaconWebappDemo::Application.routes.draw do
 
   root 'customers#index'
   resources :product_areas
+  resources :events
 
   resources :customers do
     resources :visits

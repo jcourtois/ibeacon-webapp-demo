@@ -11,12 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140204153006) do
+ActiveRecord::Schema.define(version: 20140716234620) do
+
+  create_table "coupons", force: true do |t|
+    t.string "name"
+    t.string "description"
+    t.string "image"
+    t.string "product_area_id"
+  end
 
   create_table "customers", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "membership_number"
+  end
+
+  create_table "events", force: true do |t|
+    t.integer  "customer_id"
+    t.string   "event_type"
+    t.datetime "time"
+    t.string   "coupon_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "product_areas", force: true do |t|
