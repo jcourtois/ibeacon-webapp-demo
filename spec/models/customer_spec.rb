@@ -7,6 +7,45 @@ describe Customer do
     FactoryGirl.build(:customer).valid?.should == true
   end
 
+  describe '#click_events' do
+    it 'returns only events that are click for the customer' do
+      customer = create(:customer)
+      coupon = Coupon.create
+      click = Event.create(event_type: 'click', coupon_id: coupon.id, customer_id: customer.id)
+
+      expect(customer.click_events).to eq([click])
+    end
+
+    it 'does not return events for other customers' do
+      customer1 = create(:customer)
+      customer2 = create(:customer)
+      coupon = Coupon.create
+      other_click = Event.create(event_type: 'click', coupon_id: coupon.id, customer_id: customer2.id)
+
+      expect(customer1.click_events).to be_empty
+    end
+
+    it 'does not return events that are not click' do
+      customer = create(:customer)
+      coupon = Coupon.create
+      other_event = Event.create(event_type: 'other', coupon_id: coupon.id, customer_id: customer.id)
+
+      expect(customer.click_events).to be_empty
+    end
+  end
+
+  describe '#clicked_coupons' do
+    it 'returns coupons that have click events' do
+      customer = create(:customer)
+      coupon1 = Coupon.create
+      coupon2 = Coupon.create
+      click = Event.create(event_type: 'click', coupon_id: coupon1.id, customer_id: customer.id)
+      other_event = Event.create(event_type: 'other', coupon_id: coupon2.id, customer_id: customer.id)
+
+      expect(customer.clicked_coupons).to eq([coupon1])
+    end
+  end
+
   describe '#smoothed_visits' do
     before :each do
       this_time = Time.now

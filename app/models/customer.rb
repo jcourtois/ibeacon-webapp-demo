@@ -1,6 +1,8 @@
 class Customer < ActiveRecord::Base
   validates_uniqueness_of :membership_number
   has_many :visits
+  has_many :events
+  has_many :click_events, -> { where(event_type: Event::CLICK)}, class_name: 'Event'
 
   def to_param
     membership_number
@@ -8,6 +10,10 @@ class Customer < ActiveRecord::Base
 
   def smoothed_visits
     collapse_consecutive_visits_to_same_area(long_visits_from visits)
+  end
+
+  def clicked_coupons
+    click_events.includes(:coupon).map(&:coupon)
   end
 
   private
