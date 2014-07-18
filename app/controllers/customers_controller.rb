@@ -51,7 +51,7 @@ class CustomersController < ApplicationController
 
   private
     def set_customer
-      find_by_membership_number(params[:customer_id])
+      Customer.find(params[:customer_id])
     end
 
     def customer_params

@@ -8,7 +8,7 @@
   <tbody>
   <% areas.each do |area| %>
       <tr>
-        <td><%= coupons_map[area.name] %></td>
+        <td><span class=<%=coupon_class(coupons_map[area.name], clicked_coupons)%>><%= coupons_map[area.name] %></span></td>
         <td><%= image_tag coupons_image_map[area.name], size: "100x100"%></td>
       </tr>
   <% end %>

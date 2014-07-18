@@ -1,5 +1,5 @@
 <% content_for :head do %>
-    <meta http-equiv="refresh" content="1" />
+  <meta http-equiv="refresh" content="1" />
 <% end %>
 
 <h1><%= "Visits for #{number_to_phone(@customer.membership_number, area_code: true)}" %></h1>
@@ -31,7 +31,7 @@
   </div>
 
   <div id="coupons">
-    <%= render 'coupons_served_up', :areas => unique_areas(@visits) %>
+    <%= render partial: 'coupons_served_up', locals: {areas: unique_areas(@visits), clicked_coupons: @clicked_coupons} %>
   </div>
 
 <% end %>

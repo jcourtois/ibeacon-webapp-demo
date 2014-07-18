@@ -44,4 +44,8 @@ module VisitsHelper
         'Crackers, cookies and bread' => 'nabisco.jpg'
     }
   end
+
+  def coupon_class(coupon_name, clicked_coupons)
+    return 'highlighted' if clicked_coupons.map(&:name).include?(coupon_name)
+  end
 end

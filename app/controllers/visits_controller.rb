@@ -5,6 +5,7 @@ class VisitsController < ApplicationController
 
   def index
     @visits = @customer.visits.sort_by { |visit| visit.enter_time}
+    @clicked_coupons = @customer.clicked_coupons
     @smoothed_visits = @customer.smoothed_visits.sort_by { |visit| visit.enter_time}
   end
 
@@ -75,6 +76,6 @@ class VisitsController < ApplicationController
     end
 
     def set_customer
-      @customer = Customer.find_by_membership_number(params[:customer_id])
+      @customer = Customer.find(params[:customer_id])
     end
 end
