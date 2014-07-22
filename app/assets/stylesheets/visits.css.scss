@@ -32,44 +32,58 @@
   line-height: 1.2em;
 }
 
-#chart_containers {
-  float: left;
-  overflow: auto;
-  display: inline-block;
-}
 
 #pie_chart_container {
-  overflow: auto;
-  display: inline-block;
+  width: 100%;
+  margin-top: 50px;
 }
 
 #smooth_chart_container {
   float: left;
+  width: 50%
 }
 
 #raw_chart_container {
   float: left;
-  display: inline-block;
+  width: 50%
 }
 
-#coupons {
-  float: left;
-  padding-top: 379px;
-  display: inline-block;
+#store_path_graph_container {
+  margin-top: 50px;
 }
 
-#coupons .highlighted {
-  font-weight: bold;
-  font-size: 15;
-  color: #005B7C;
+.coupon {
+  border: #ccc 1px solid;
+  color: #777;
+  width: 140px;
+  margin-right: 20px;
+  padding: 10px;
+  text-align: center;
+  .clicked, .delivered {
+    font-style: italic;
+    margin-top: 5px;
+    color: #fff;
+  }
+  .clicked {
+    background-color: #666;
+  }
+  .delivered {
+    background-color: #ccc;
+  }
 }
 
 .chart {
   opacity: 0.95;
 }
 
-table {
-  border-spacing: 15px 5px;
+th, td {
+  padding-right: 10px;
+}
+
+.customers {
+  th, td {
+    padding-right: 50px;
+  }
 }
 
 
@@ -96,6 +110,10 @@ table {
 #crackers {
   color: #999999;
   font-size: 26px;
+}
+
+.clear {
+  clear: both;
 }
 
 

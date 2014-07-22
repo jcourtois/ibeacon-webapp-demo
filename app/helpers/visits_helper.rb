@@ -27,11 +27,11 @@ module VisitsHelper
 
   def coupons_map
     {
-        'Yogurt' => 'Chobani',
-        'Condiments and sauces' => 'Campbell\'s',
-        'Salad dressings and mayonnaise' => 'Wish-bone',
-        'Pet food and pet products' => 'Friskies',
-        'Crackers, cookies and bread' => 'Nabisco'
+        'Yogurt' => {name: 'Chobani', description: '$1.00 Off'},
+        'Condiments and sauces' => {name: 'Campbell\'s', description: '$0.50 Off'},
+        'Salad dressings and mayonnaise' => {name: 'Wish-bone', description: 'BOGO Free'},
+        'Pet food and pet products' => {name: 'Friskies', description: 'BOGO 50% Off'},
+        'Crackers, cookies and bread' => {name: 'Nabisco', description: '$1.50 Off'}
     }
   end
 
@@ -45,7 +45,7 @@ module VisitsHelper
     }
   end
 
-  def coupon_class(coupon_name, clicked_coupons)
-    return 'highlighted' if clicked_coupons.map(&:name).include?(coupon_name)
+  def coupon_event(coupon_name, clicked_coupons)
+    clicked_coupons.map(&:name).include?(coupon_name) ? 'clicked' : 'delivered'
   end
 end
