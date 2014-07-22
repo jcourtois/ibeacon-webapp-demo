@@ -1,1 +1,0 @@
-$(document).ready(function(){if(1==$("#visitsPieChart").length){var t=document.getElementById("visitsPieChart").getContext("2d"),e=$("#visitsPieChart").data("visits"),i=null;new Chart(t).Doughnut(e,i)}});

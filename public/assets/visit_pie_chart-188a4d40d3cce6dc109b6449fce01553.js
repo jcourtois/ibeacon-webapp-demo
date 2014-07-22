@@ -1,1 +1,0 @@
-$(document).ready(function(){{var t=document.getElementById("visitsPieChart").getContext("2d"),e=[{value:30,color:"#F38630"},{value:50,color:"#E0E4CC"},{value:100,color:"#69D2E7"}],e=$("#visitsPieChart").data("visits"),o=null;new Chart(t).Doughnut(e,o)}});
