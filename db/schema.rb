@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140718215057) do
+ActiveRecord::Schema.define(version: 20140916195117) do
 
   create_table "coupons", force: true do |t|
     t.string  "name"

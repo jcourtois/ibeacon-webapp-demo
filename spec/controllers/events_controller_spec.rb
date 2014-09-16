@@ -4,7 +4,7 @@ describe EventsController do
 
   let(:event_time) {1.day.ago}
   let(:customer) {create(:customer)}
-  let(:product_area) {create(:product_area, name: 'Yogurt')}
+  let(:product_area) {create(:product_area, name: 'Dairy')}
   let(:coupon) {create(:coupon, name: 'Chobani', description: '$5.00 off', product_area: product_area)}
   let(:event_request) do
     {

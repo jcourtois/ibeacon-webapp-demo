@@ -27,21 +27,21 @@ module VisitsHelper
 
   def coupons_map
     {
-        'Yogurt' => {name: 'Chobani', description: '$1.00 Off'},
-        'Condiments and sauces' => {name: 'Campbell\'s', description: '$0.50 Off'},
-        'Salad dressings and mayonnaise' => {name: 'Wish-bone', description: 'BOGO Free'},
-        'Pet food and pet products' => {name: 'Friskies', description: 'BOGO 50% Off'},
-        'Crackers, cookies and bread' => {name: 'Nabisco', description: '$1.50 Off'}
+        'Dairy' => {name: 'Chobani', description: '$1.00 Off'},
+        'Soup' => {name: 'Campbell\'s', description: '$0.50 Off'},
+        'Salad Dressing' => {name: 'Wish-bone', description: 'BOGO Free'},
+        'Pet Food' => {name: 'Friskies', description: 'BOGO 50% Off'},
+        'Crackers' => {name: 'Nabisco', description: '$1.50 Off'}
     }
   end
 
   def coupons_image_map
     {
-        'Yogurt' => 'chobani.jpg',
-        'Condiments and sauces' => 'campbells.jpg',
-        'Salad dressings and mayonnaise' => 'wishbone.jpg',
-        'Pet food and pet products' => 'friskies.jpg',
-        'Crackers, cookies and bread' => 'nabisco.jpg'
+        'Dairy' => 'chobani.jpg',
+        'Soup' => 'campbells.jpg',
+        'Salad Dressing' => 'wishbone.jpg',
+        'Pet Food' => 'friskies.jpg',
+        'Crackers' => 'nabisco.jpg'
     }
   end
 

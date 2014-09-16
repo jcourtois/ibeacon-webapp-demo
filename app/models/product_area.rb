@@ -14,7 +14,6 @@ class ProductArea < ActiveRecord::Base
     color_hash = {
         'Grains' => '#FFD772',
         'Produce' => '#3CE85F',
-        'Dairy' => '#28696D',
         'Meat' => '#E8362B',
         'Non-perishables' => '#FFDC05',
         'Dog food' => '#5E301C',
@@ -22,9 +21,9 @@ class ProductArea < ActiveRecord::Base
         'Canned MeatLike Products' => '#8DFFC9',
         'Fruit' => '#97D700',
         'Drinks' => '#FF7D00',
-        'Yogurt' => '#A0C9E8',
-        'Condiments and sauces' => '#42968F',
-        'Salad dressings and mayonnaise' => '#005B7C',
+        'Dairy' => '#A0C9E8',
+        'Soup' => '#42968F',
+        'Salad Dressing' => '#005B7C',
         'Pet Food' => '#563E3B',
         'Pet food and pet products' => '#563E3B'
     }
@@ -34,11 +33,11 @@ class ProductArea < ActiveRecord::Base
 
   def area_css_ids
     css_id_hash = {
-        'Yogurt' => 'yogurt',
-        'Condiments and sauces' => 'condiments',
-        'Salad dressings and mayonnaise' => 'salad',
-        'Pet food and pet products' => 'pet',
-        'Crackers, cookies and bread' => 'crackers'
+        'Dairy' => 'dairy',
+        'Soup' => 'soup',
+        'Salad Dressing' => 'salad',
+        'Pet Food' => 'pet',
+        'Crackers' => 'crackers'
     }
   end
 end
