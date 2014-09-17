@@ -1,7 +1,7 @@
 class VisitsController < ApplicationController
   before_action :set_visit, only: [:show, :edit, :destroy]
   before_action :set_customer, except: [:create, :update]
-  before_action :set_smoothed_visits, only: [:index, :coupons_served_up, :pie_chart_data, :visit_table]
+  before_action :set_smoothed_visits, only: [:index, :pie_chart_data, :visit_table]
   skip_before_filter :verify_authenticity_token, only: [:create, :new, :update]
 
   def index
@@ -61,7 +61,7 @@ class VisitsController < ApplicationController
 
   def coupons_served_up
     respond_to do |format|
-      format.html{ render partial: 'coupons_served_up', locals: {visits: @smoothed_visits} }
+      format.html{ render partial: 'coupons_served_up', locals: {product_areas_visited: @customer.product_areas_visited} }
     end
   end
 

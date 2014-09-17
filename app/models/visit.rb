@@ -18,6 +18,7 @@ class Visit < ActiveRecord::Base
     {"value" => duration, "color" => product_area.color }
   end
 
+
 	def formatted_enter_time
     enter_time.strftime("%l:%M%P").strip
   end

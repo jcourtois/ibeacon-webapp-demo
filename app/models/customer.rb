@@ -20,6 +20,10 @@ class Customer < ActiveRecord::Base
     click_events.includes(:coupon).map(&:coupon)
   end
 
+  def product_areas_visited
+    visits.order(:enter_time).map(&:product_area).uniq
+  end
+
   private
   def long_visits_from visits
     visits.keep_if{|visit| visit.duration > 5.0 }

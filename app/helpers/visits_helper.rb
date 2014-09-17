@@ -17,10 +17,6 @@ module VisitsHelper
     visits.map{ |visit| [visit.product_area.id, visit.product_area.name] }.uniq
   end
 
-  def unique_areas visits
-    visits.map{ |visit| visit.product_area }.uniq
-  end
-
   def coupons_map
     {
         'Dairy' => {name: 'Chobani Yogurt', description: '4/$6', legal: 'Limit 4 per customer'},
