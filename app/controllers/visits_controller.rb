@@ -20,18 +20,17 @@ class VisitsController < ApplicationController
   end
 
   def create
-    ActiveRecord::Base.transaction do
-      params[:membership_number] = params[:customer_id] if params[:customer_id].present? && params[:membership_number].nil?
+    if params[:membership_number]
       @customer = Customer.find_or_create_by(membership_number: params[:membership_number])
-      @product_area = ProductArea.find_or_create_by(name: params['visit']['product_area'])
-      @visit = Visit.new(visit_params)
-      @visit.customer_id = @customer.id
-      @visit.product_area_id = @product_area.id
+    else
+      @customer = Customer.find_or_create_by(id: params[:customer_id])
     end
+    @product_area = ProductArea.find_or_create_by(name: params['visit']['product_area'])
+    @visit = Visit.new(visit_params.merge(customer_id: @customer.id, product_area_id: @product_area.id))
 
     respond_to do |format|
       if @visit.save
-        format.html { redirect_to customer_visits_path(@customer), notice: 'Visit was successfully created.' }
+        format.html { redirect_to customer_visits_path(@customer.id), notice: 'Visit was successfully created.' }
         format.json { render action: 'show', status: :created, location: customer_visits_path(@customer) }
       else
         format.html { render action: 'new' }
@@ -41,8 +40,11 @@ class VisitsController < ApplicationController
   end
 
   def update
-    params[:membership_number] = params[:customer_id] if params[:customer_id].present? && params[:membership_number].nil?
-    @customer = Customer.find_by(membership_number: params[:membership_number])
+    if params[:membership_number]
+      @customer = Customer.find_by(membership_number: params[:membership_number])
+    else
+      @customer = Customer.find_by(id: params[:customer_id])
+    end
     @product_area = ProductArea.find_by(name: params['visit']['product_area'])
     @visit = @customer.visits.find_by(product_area: @product_area, exit_time: nil)
 
