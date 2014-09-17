@@ -19,4 +19,5 @@
 //= require Chart.StackedBar
 //= require customers
 //= require product_areas
+//= require visit_ajax
 //= require_self
