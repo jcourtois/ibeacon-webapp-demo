@@ -1,5 +1,5 @@
-<% url = @visit.id ? customer_visit_path(id: @visit.id) : new_customer_visit_path %>
-<%= form_for(@visit, url: url) do |f| %>
+<%# url = @visit.id ? customer_visit_path(id: @visit.id) : customer_visit_path %>
+<%= form_for([@customer, @visit]) do |f| %>
   <% if @visit.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@visit.errors.count, "error") %> prohibited this visit from being saved:</h2>

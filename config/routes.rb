@@ -5,8 +5,12 @@ IbeaconWebappDemo::Application.routes.draw do
   resources :events
 
   resources :customers do
-    resources :visits
-		post 'visits/new' => 'visits#create'
+    resources :visits do
+      collection do
+        get 'coupons_served_up'
+        get 'activity'
+      end
+    end
   end
 
   post 'visits/create' => 'visits#create'

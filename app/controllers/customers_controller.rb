@@ -51,7 +51,7 @@ class CustomersController < ApplicationController
 
   private
     def set_customer
-      Customer.find(params[:customer_id])
+      @customer = Customer.where(membership_number: (params[:membership_number] || params[:id] || params[:customer_id])).first
     end
 
     def customer_params

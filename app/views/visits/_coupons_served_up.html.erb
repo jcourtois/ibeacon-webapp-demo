@@ -2,11 +2,11 @@
   <h3>Coupons Delivered</h3>
 
   <div>
-    <% areas.each do |area| %>
+    <% unique_areas(visits).each do |area| %>
       <div class="coupon">
         <div class="pull-left"><%= image_tag coupons_image_map[area.name], size: "100x100"%></div>
         <div class="coupon-text">
-          <div class='strong'><%= coupons_map[area.name][:description] %></div>
+          <div class='coupon-value'><%= coupons_map[area.name][:description] %></div>
           <div><%= coupons_map[area.name][:name] %></div>
           <div class='small'><%= coupons_map[area.name][:legal] %></div>
         </div>

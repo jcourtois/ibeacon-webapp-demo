@@ -1,16 +1,20 @@
 <div class="chart clearfix" id="activity-chart">
-  <h3>Coupons Delivered vs Clicked</h3>
+  <h3>Categories Delivered vs Clicked</h3>
 
   <%= tag "canvas", width:"550", height:"120", id: "visit-activity-chart", data: {} %>
 
   <div class="activity-chart-legend">
     <div class="legend-wrapper">
+      <div class="square visited">&nbsp;</div>
+      <div>visited</div>
+    </div>
+    <div class="legend-wrapper">
       <div class="square delivered">&nbsp;</div>
-      <div>coupons delivered</div>
+      <div>delivered</div>
     </div>
     <div class="legend-wrapper">
       <div class="square clicked">&nbsp;</div>
-      <div>coupons clicked</div>
+      <div>clicked</div>
     </div>
   </div>
 </div>

@@ -3,20 +3,19 @@ $(document).ready(function() {
     labels: ["Dairy", "Soup", "Salad Dressing", "Crackers"],
     datasets: [
         {
+            label: "Coupons Clicked",
+            fillColor: "rgba(220,220,220,0.5)",
+            data: [0, 1, 0, 1]
+        },
+        {
             label: "Coupons Delivered",
             fillColor: "rgba(220,220,220,0.5)",
-            strokeColor: "rgba(220,220,220,0.8)",
-            highlightFill: "rgba(220,220,220,0.75)",
-            highlightStroke: "rgba(220,220,220,1)",
             data: [0, 1, 1, 1]
         },
         {
-            label: "Coupons Clicked",
+            label: "Categories Visited",
             fillColor: "rgba(151,187,205,0.5)",
-            strokeColor: "rgba(151,187,205,0.8)",
-            highlightFill: "rgba(151,187,205,0.75)",
-            highlightStroke: "rgba(151,187,205,1)",
-            data: [0, 1, 0, 1]
+            data: [0, 1, 1, 1]
         }
     ]
 };

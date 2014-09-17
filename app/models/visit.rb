@@ -15,7 +15,7 @@ class Visit < ActiveRecord::Base
   end
 
   def to_pie_chart_json
-    {"value" => duration, "color" => product_area.color}
+    {"value" => duration, "color" => product_area.color }
   end
 
 	def formatted_enter_time
