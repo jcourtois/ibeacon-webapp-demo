@@ -1,13 +1,16 @@
-<div class='coupons'>
+<div class='coupons clearfix'>
   <h3>Coupons Delivered</h3>
 
   <div>
     <% areas.each do |area| %>
-      <div class="coupon pull-left">
-        <div><%= image_tag coupons_image_map[area.name], size: "100x100"%></div>
-        <div><span><%= coupons_map[area.name][:name] %></span></div>
-        <div><span><%= coupons_map[area.name][:description] %></span></div>
-        <div class="<%=coupon_event(coupons_map[area.name][:name], clicked_coupons)%>"><%= coupon_event(coupons_map[area.name][:name], clicked_coupons)%></div>
+      <div class="coupon">
+        <div class="pull-left"><%= image_tag coupons_image_map[area.name], size: "100x100"%></div>
+        <div class="coupon-text">
+          <div class='strong'><%= coupons_map[area.name][:description] %></div>
+          <div><%= coupons_map[area.name][:name] %></div>
+          <div class='small'><%= coupons_map[area.name][:legal] %></div>
+        </div>
+        <div class="clearfix">&nbsp;</div>
       </div>
     <% end %>
   </div>

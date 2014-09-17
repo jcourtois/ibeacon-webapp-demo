@@ -1,11 +1,10 @@
 <table id="visit_table">
   <thead>
     <tr>
-      <th>Product Area</th>
-      <th>Key</th>
+      <th>Category</th>
       <th>Duration</th>
-      <th>Enter Time</th>
-      <th>Exit Time</th>
+      <th>Time Entered</th>
+      <th>Time Exited</th>
       <th></th>
     </tr>
   </thead>
@@ -13,13 +12,13 @@
   <tbody>
     <% visits.each do |visit| %>
       <tr>
-        <td><%= visit.product_area.name %></td>
-        <td><span id=<%= visit.product_area.css_id %>>&#x25A0;</span></td>
+        <td><span id=<%= visit.product_area.css_id %>>&#x25A0;</span><%= visit.product_area.name %></td>
         <td><%= visit.string_numeric_duration %></td>
         <td><%= visit.formatted_enter_time %></td>
         <td><%= visit.formatted_exit_time %></td>
       </tr>
     <% end %>
   </tbody>
-  <%= "Total duration: #{total_duration visits}" %>
 </table>
+<br/>
+<div><b>Total duration: <%=total_duration visits %></b></div>

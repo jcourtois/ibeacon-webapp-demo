@@ -27,11 +27,11 @@ module VisitsHelper
 
   def coupons_map
     {
-        'Dairy' => {name: 'Chobani', description: '$1.00 Off'},
-        'Soup' => {name: 'Campbell\'s', description: '$0.50 Off'},
-        'Salad Dressing' => {name: 'Wish-bone', description: 'BOGO Free'},
-        'Pet Food' => {name: 'Friskies', description: 'BOGO 50% Off'},
-        'Crackers' => {name: 'Nabisco', description: '$1.50 Off'}
+        'Dairy' => {name: 'Chobani Yogurt', description: '4/$6', legal: 'Limit 4 per customer'},
+        'Soup' => {name: 'Campbell\'s Soup', description: '2/$5', legal: '14 oz size or larger'},
+        'Salad Dressing' => {name: 'Wish-bone Salad Dressing', description: '$3.29', legal: 'Fat free varieties'},
+        'Pet Food' => {name: 'Friskies Cat Food', description: 'BOGO 50% Off', legal: 'Limit 4 per customer'},
+        'Crackers' => {name: 'Nabisco Crackers', description: '$2.33', legal: 'When you buy 2'}
     }
   end
 

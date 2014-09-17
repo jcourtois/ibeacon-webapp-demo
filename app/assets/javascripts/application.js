@@ -13,4 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//
+//= require Chart.Core
+//= require Chart.Doughnut
+//= require Chart.StackedBar
+//= require customers
+//= require product_areas
+//= require visit_activity_chart
+//= require visit_pie_chart
+//= require_self

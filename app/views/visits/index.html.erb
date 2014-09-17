@@ -1,13 +1,5 @@
-<% content_for :head do %>
-  <meta http-equiv="refresh" content="1" />
-<% end %>
+<h1 class="page-header"><%= "Customer #{number_to_phone(@customer.membership_number, area_code: true)}" %></h1>
 
-<h1 class="page-header"><%= "Visits for Customer #{number_to_phone(@customer.membership_number, area_code: true)}" %></h1>
-
-  <div id="coupons" class="clearfix">
-    <%= render partial: 'coupons_served_up', locals: {areas: unique_areas(@visits), clicked_coupons: @clicked_coupons} %>
-    <br class="clear"/>
-  </div>
 
 <% if @smoothed_visits.empty? %>
     <%=  render 'no_visits' %>
@@ -15,33 +7,25 @@
   <div id="chart_containers">
       <div id="pie_chart_container">
           <div id="smooth_chart_container">
-            <h3>Smoothed Data</h3>
+            <h3>Time Spent in Product Areas</h3>
             <%= render 'visit_pie_chart', :visits => @smoothed_visits, :chart_id => 'smooth-doughnut-chart' %>
             <%= render 'visit_table', :visits => @smoothed_visits %>
+            <%= render partial: 'visits_activity_chart' %>
           </div>
 
-          <div id="raw_chart_container">
-              <h3>Raw Data</h3>
-              <%= render 'visit_pie_chart', :visits => @visits, :chart_id => 'doughnut-chart' %>
-              <%= render 'visit_table', :visits => @visits %>
+          <div id="coupons">
+            <%= render partial: 'coupons_served_up', locals: {areas: unique_areas(@visits), clicked_coupons: @clicked_coupons} %>
           </div>
-          <br class="clear"/>
       </div>
 
-      <div id="store_path_graph_container">
-          <h3>Store path over time</h3>
-          <%= render 'visit_step_graph', :visits => @smoothed_visits %>
-      </div>
 
-  </div>
   </div>
 
 
 <% end %>
 
-<br>
 
 <div id='nav'>
-  <%= link_to 'Record new Visit', new_customer_visit_path %>
+  <%= link_to 'Record new visit', new_customer_visit_path %>
 </div>
 

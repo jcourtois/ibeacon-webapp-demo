@@ -40,12 +40,47 @@
 
 #smooth_chart_container {
   float: left;
-  width: 50%
+  width: 70%
+}
+#smooth_chart_container .chart {
+  margin-right: 50px;
 }
 
-#raw_chart_container {
+#visit_table {
+  margin-top: 40px;
+}
+#visit_table th {
+  padding-right: 25px;
+}
+#coupons {
   float: left;
-  width: 50%
+  width: 30%
+}
+
+#activity-chart {
+  margin-top: 60px;
+  clear: both;
+}
+#activity-chart canvas {
+  margin-left: -15px;
+}
+#activity-chart .activity-chart-legend .legend-wrapper {
+  float: left;
+  width: 150px;
+  font-size: 11px;
+}
+#activity-chart .activity-chart-legend .square {
+  border: #cccccc 1px solid;
+  width: 15px;
+  height: 15px;
+  float: left;
+  margin-right: 5px;
+}
+#activity-chart .activity-chart-legend .delivered {
+  background-color: rgba(220,220,220,0.5);
+}
+#activity-chart .activity-chart-legend .clicked {
+  background-color: rgba(151,187,205,0.5);
 }
 
 #store_path_graph_container {
@@ -55,10 +90,10 @@
 .coupon {
   border: #ccc 1px solid;
   color: #777;
-  width: 140px;
-  margin-right: 20px;
+  width: 280px;
+  margin-right: 15px;
+  margin-bottom: 15px;
   padding: 10px;
-  text-align: center;
   .clicked, .delivered {
     font-style: italic;
     margin-top: 5px;
@@ -71,6 +106,18 @@
     background-color: #ccc;
   }
 }
+.coupon-text {
+  margin-top: 20px;
+  text-align: center;
+}
+.strong {
+  font-weight: bold;
+  font-size: 18px;
+}
+.small {
+  font-size: 11px;
+}
+
 
 .chart {
   opacity: 0.95;

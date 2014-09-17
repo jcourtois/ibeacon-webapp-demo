@@ -11,5 +11,4 @@ $(document).ready(function() {
     };
 
     generateChart('smooth-doughnut-chart');
-    generateChart('doughnut-chart');
 });
