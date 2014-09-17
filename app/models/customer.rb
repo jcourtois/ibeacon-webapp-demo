@@ -9,7 +9,11 @@ class Customer < ActiveRecord::Base
   end
 
   def smoothed_visits
-    collapse_consecutive_visits_to_same_area(long_visits_from visits)
+    @smoothed_visits ||= collapse_consecutive_visits_to_same_area(long_visits_from visits)
+  end
+
+  def sorted_smoothed_visits
+    smoothed_visits.sort_by { |visit| visit.enter_time}
   end
 
   def clicked_coupons

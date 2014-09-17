@@ -1,12 +1,10 @@
 class VisitsController < ApplicationController
   before_action :set_visit, only: [:show, :edit, :destroy]
   before_action :set_customer, except: [:create, :update]
+  before_action :set_smoothed_visits, only: [:index, :coupons_served_up, :pie_chart_data, :visit_table]
   skip_before_filter :verify_authenticity_token, only: [:create, :new, :update]
 
   def index
-    @visits = @customer.visits.sort_by { |visit| visit.enter_time}
-    @clicked_coupons = @customer.clicked_coupons
-    @smoothed_visits = @customer.smoothed_visits.sort_by { |visit| visit.enter_time}
   end
 
   def show
@@ -62,17 +60,21 @@ class VisitsController < ApplicationController
   end
 
   def coupons_served_up
-    visits = @customer.visits.sort_by { |visit| visit.enter_time}
     respond_to do |format|
-      format.html{ render partial: 'coupons_served_up', locals: {visits: visits} }
+      format.html{ render partial: 'coupons_served_up', locals: {visits: @smoothed_visits} }
     end
   end
 
   def pie_chart_data
-    smoothed_visits = @customer.smoothed_visits.sort_by { |visit| visit.enter_time}
-    data = smoothed_visits.map{|visit| visit.to_pie_chart_json}
+    data = @smoothed_visits.map{|visit| visit.to_pie_chart_json}
     respond_to do |format|
       format.json {render json: data}
+    end
+  end
+
+  def visit_table
+    respond_to do |format|
+      format.html{ render partial: 'visit_table', locals: {visits: @smoothed_visits} }
     end
   end
 
@@ -85,6 +87,10 @@ class VisitsController < ApplicationController
 
 
   private
+    def set_smoothed_visits
+      @smoothed_visits = @customer.sorted_smoothed_visits
+    end
+
     def set_visit
       @visit = Visit.find(params[:id])
     end
