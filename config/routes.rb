@@ -10,6 +10,7 @@ IbeaconWebappDemo::Application.routes.draw do
         get 'coupons_served_up'
         get 'pie_chart_data'
         get 'visit_table'
+        get 'visit_activity_chart_data'
         get 'activity'
       end
     end

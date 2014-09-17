@@ -4,17 +4,8 @@ class VisitsController < ApplicationController
   before_action :set_smoothed_visits, only: [:index, :pie_chart_data, :visit_table]
   skip_before_filter :verify_authenticity_token, only: [:create, :new, :update]
 
-  def index
-  end
-
-  def show
-  end
-
   def new
     @visit = Visit.new
-  end
-
-  def edit
   end
 
   def create
@@ -69,6 +60,30 @@ class VisitsController < ApplicationController
     data = @smoothed_visits.map{|visit| visit.to_pie_chart_json}
     respond_to do |format|
       format.json {render json: data}
+    end
+  end
+
+  def visit_activity_chart_data
+    labels = ["Dairy", "Soup", "Salad Dressing", "Crackers"]
+    datasets = [
+      {
+        label: "Coupons Visited",
+        fillColor: "rgba(151,187,205,0.5)",
+        data: [0,1,1,1]
+      },
+      {
+        label: "Coupons Delivered",
+        fillColor: "rgba(220,220,220,0.5)",
+        data: [0,1,1,1]
+      },
+      {
+        label: "Coupons Clicked",
+        fillColor: "rgba(220,220,220,0.5)",
+        data: [0,0,1,1]
+      }
+    ]
+    respond_to do |format|
+      format.json {render json: {labels: labels, datasets: datasets}}
     end
   end
 

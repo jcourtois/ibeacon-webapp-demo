@@ -13,6 +13,18 @@ $(document).ready(function() {
     });
   };
 
+  var refreshVisitActivityChart = function() {
+    $.get('visits/visit_activity_chart_data.json', function(data) {
+      var options = {
+        animation: false,
+        barValueSpacing: 30,
+        scaleShowGridLines: false,
+        scaleShowLabels: false,
+      };
+      visitActivityChart.StackedBar(data, options);
+    });
+  };
+
   var refreshPieChartTable = function() {
     $.get('visits/visit_table.html', function(data) {
       $('#visit-table').html(data);
@@ -26,6 +38,7 @@ $(document).ready(function() {
         refreshCoupons();
         refreshPieChart();
         refreshPieChartTable();
+        refreshVisitActivityChart();
       }
       setTimeout(function() {checkForNewActivity(data.visit_count)}, 2000);
     });
@@ -34,6 +47,10 @@ $(document).ready(function() {
   if ($("#coupons").length > 0) {
     var pieChartContext = document.getElementById('smooth-doughnut-chart').getContext("2d");
     var pieChart = new Chart(pieChartContext);
+
+    var visitActivityChartContext = document.getElementById('visit-activity-chart').getContext("2d");
+    var visitActivityChart = new Chart(visitActivityChartContext);
+    $('#visit-activity-chart').parent().append($('.activity-chart-legend'));
 
     checkForNewActivity(0);
   }
