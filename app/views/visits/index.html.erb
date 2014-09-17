@@ -1,4 +1,3 @@
-<%= javascript_include_tag 'visit_pie_chart' %>
 <%= javascript_include_tag 'visit_activity_chart' %>
 <%= javascript_include_tag 'visit_ajax' %>
 
@@ -12,14 +11,12 @@
       <div id="pie_chart_container">
           <div id="smooth_chart_container">
             <h3>Time Spent in Product Areas</h3>
-            <%#= @smoothed_visits.inspect %>
             <%= render 'visit_pie_chart', :visits => @smoothed_visits, :chart_id => 'smooth-doughnut-chart' %>
             <%= render 'visit_table', :visits => @smoothed_visits %>
             <%= render partial: 'visits_activity_chart' %>
           </div>
 
           <div id="coupons">
-            <%#= render partial: 'coupons_served_up', locals: {areas: unique_areas(@visits), clicked_coupons: @clicked_coupons} %>
           </div>
       </div>
 

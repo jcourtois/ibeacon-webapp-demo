@@ -68,6 +68,14 @@ class VisitsController < ApplicationController
     end
   end
 
+  def pie_chart_data
+    smoothed_visits = @customer.smoothed_visits.sort_by { |visit| visit.enter_time}
+    data = smoothed_visits.map{|visit| visit.to_pie_chart_json}
+    respond_to do |format|
+      format.json {render json: data}
+    end
+  end
+
   def activity
     new_visit_count = @customer.visits.count
     respond_to do |format|

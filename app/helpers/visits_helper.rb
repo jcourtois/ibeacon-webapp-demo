@@ -3,10 +3,6 @@ module VisitsHelper
     Time.at(visits.map{ |visit| visit.duration }.reduce(:+)).utc.strftime("%H:%M:%S").gsub(/^[0:]*/, '')
   end
 
-  def pie_chart_data visits
-    visits.map{|visit| visit.to_pie_chart_json}
-  end
-
   def step_graph_format time
     time.to_i * 1000
   end

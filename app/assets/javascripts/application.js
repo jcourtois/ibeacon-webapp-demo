@@ -20,6 +20,5 @@
 //= require customers
 //= require product_areas
 //= require visit_activity_chart
-//= require visit_pie_chart
 //= require visit_ajax
 //= require_self

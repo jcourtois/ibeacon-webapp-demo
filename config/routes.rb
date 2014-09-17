@@ -8,6 +8,7 @@ IbeaconWebappDemo::Application.routes.draw do
     resources :visits do
       collection do
         get 'coupons_served_up'
+        get 'pie_chart_data'
         get 'activity'
       end
     end
