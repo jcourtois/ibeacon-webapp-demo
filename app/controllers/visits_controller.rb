@@ -64,22 +64,24 @@ class VisitsController < ApplicationController
   end
 
   def visit_activity_chart_data
-    labels = ["Dairy", "Soup", "Salad Dressing", "Crackers"]
+    areas = @customer.product_areas_visited
+    clicked_area_ids = @customer.clicked_coupons.map(&:product_area_id)
+    labels = areas.map(&:name)
     datasets = [
       {
-        label: "Coupons Visited",
-        fillColor: "rgba(151,187,205,0.5)",
-        data: [0,1,1,1]
+        label: "Coupons Clicked",
+        fillColor: "rgba(151,187,205,1)",
+        data: areas.map{|area| clicked_area_ids.include?(area.id) ? 1 : 0}
       },
       {
         label: "Coupons Delivered",
-        fillColor: "rgba(220,220,220,0.5)",
-        data: [0,1,1,1]
+        fillColor: "rgba(151,187,205,0.5)",
+        data: areas.map{|area| 1}
       },
       {
-        label: "Coupons Clicked",
+        label: "Coupons Visited",
         fillColor: "rgba(220,220,220,0.5)",
-        data: [0,0,1,1]
+        data: areas.map{|area| 1}
       }
     ]
     respond_to do |format|

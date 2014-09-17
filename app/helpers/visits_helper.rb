@@ -21,7 +21,7 @@ module VisitsHelper
     {
         'Dairy' => {name: 'Chobani Yogurt', description: '4/$6', legal: 'Limit 4 per customer'},
         'Soup' => {name: 'Campbell\'s Soup', description: '2/$5', legal: '14 oz size or larger'},
-        'Salad Dressing' => {name: 'Wish-bone Salad Dressing', description: '$3.29', legal: 'Fat free varieties'},
+        'Salad Dressing' => {name: 'Wish-bone Dressing', description: '$3.29', legal: 'Fat free varieties'},
         'Pet Food' => {name: 'Friskies Cat Food', description: 'BOGO 50% Off', legal: 'Limit 4 per customer'},
         'Crackers' => {name: 'Nabisco Crackers', description: '$2.33', legal: 'When you buy 2'}
     }
@@ -37,7 +37,4 @@ module VisitsHelper
     }
   end
 
-  def coupon_event(coupon_name, clicked_coupons)
-    clicked_coupons.map(&:name).include?(coupon_name) ? 'clicked' : 'delivered'
-  end
 end
