@@ -21,8 +21,8 @@ module VisitsHelper
     {
         'Dairy' => {name: 'Chobani Yogurt', description: '4/$6', legal: 'Limit 4 per customer'},
         'Soup' => {name: 'Campbell\'s Soup', description: '2/$5', legal: '14 oz size or larger'},
-        'Salad Dressing' => {name: 'Wish-bone Dressing', description: '$3.29', legal: 'Fat free varieties'},
-        'Pet Food' => {name: 'Friskies Cat Food', description: 'BOGO 50% Off', legal: 'Limit 4 per customer'},
+        'Salad Dressing' => {name: 'Wish-bone Dressing', description: '$3.29', legal: 'All varieties'},
+        'Pet Food' => {name: 'Friskies Cat Food', description: '4/$6', legal: 'Limit 4 per customer'},
         'Crackers' => {name: 'Nabisco Crackers', description: '$2.33', legal: 'When you buy 2'}
     }
   end
