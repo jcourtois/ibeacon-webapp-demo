@@ -43,7 +43,7 @@ $(document).ready(function() {
         refreshVisitActivityChart();
       }
       setTimeout(function() {
-        checkForNewActivity(data.visit_count, data.click_count) }, 2000);
+        checkForNewActivity(data.visit_count, data.click_count) }, 1000);
     });
   }
 
