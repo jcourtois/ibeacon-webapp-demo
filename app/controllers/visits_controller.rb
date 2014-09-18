@@ -97,8 +97,12 @@ class VisitsController < ApplicationController
 
   def activity
     new_visit_count = @customer.visits.count
+    new_click_count = @customer.click_events.count
     respond_to do |format|
-      format.json {render json: {visit_count: new_visit_count} }
+      format.json {render json: {
+        visit_count: new_visit_count,
+        click_count: new_click_count
+      } }
     end
   end
 

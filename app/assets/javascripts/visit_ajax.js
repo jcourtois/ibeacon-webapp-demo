@@ -32,15 +32,18 @@ $(document).ready(function() {
   };
 
 
-  var checkForNewActivity = function(visitCount) {
+  var checkForNewActivity = function(visitCount, clickCount) {
     $.get('visits/activity.json', function(data) {
       if (data.visit_count > visitCount) {
         refreshCoupons();
         refreshPieChart();
         refreshPieChartTable();
+      }
+      if (data.visit_count > visitCount || data.click_count > clickCount) {
         refreshVisitActivityChart();
       }
-      setTimeout(function() {checkForNewActivity(data.visit_count)}, 2000);
+      setTimeout(function() {
+        checkForNewActivity(data.visit_count, data.click_count) }, 2000);
     });
   }
 
@@ -52,7 +55,7 @@ $(document).ready(function() {
     var visitActivityChart = new Chart(visitActivityChartContext);
     $('#visit-activity-chart').parent().append($('.activity-chart-legend'));
 
-    checkForNewActivity(0);
+    checkForNewActivity(0, 0);
   }
 });
 
