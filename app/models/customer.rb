@@ -26,7 +26,7 @@ class Customer < ActiveRecord::Base
 
   private
   def long_visits_from visits
-    visits.keep_if{|visit| visit.duration > 5.0 }
+    visits.keep_if{|visit| visit.duration > 3.0 }
   end
 
   def collapse_consecutive_visits_to_same_area visits
